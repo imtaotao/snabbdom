@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <div id='container'></div>
+  <script type="module" nomodule>
+    import { h } from './es/h.js'
+    console.log(h);
+    var container = document.getElementById('container');
+
+    var vnode = h('div#container.two.classes', {on: {click: e => console.log(e)}}, [
+      h('span', {style: {fontWeight: 'bold'}}, 'This is bold'),
+      ' and this is just normal text',
+      h('a', {props: {href: '/foo'}}, 'I\'ll take you places!')
+    ]);
+
+    console.log(vnode);
+  </script>
+</body>
+</html>
