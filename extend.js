@@ -5,7 +5,7 @@ function add (filepath) {
   fs.readFile(filepath, 'utf8', (err, data) => {
     if (err) throw err
     if (!data.match(/import .* from/g)) return
-    let newData = data.replace(/(import .* from\s+['"])(.*)(?=['"])/g, '$1$2.js')
+    let newData = data.replace(/((import|export) .* from\s+['"])(.*)(?=['"])/g, '$1$3.js')
 
     fs.writeFile(filepath, newData, (err) => {
       if (err) throw err
