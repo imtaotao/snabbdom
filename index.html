@@ -9,11 +9,22 @@
 <body>
   <div id='container'></div>
   <script type="module" nomodule>
-    import { h } from './es/h.js'
-    import snabbdomBundle from './es/snabbdom.bundle.js'
-    import * as snabbdom from './es/snabbdom.js'
 
-    var patch = snabbdomBundle.patch
+    import { init } from './es/snabbdom.js';
+    import { attributesModule } from './es/modules/attributes.js'; // for setting attributes on DOM elements
+    import { classModule } from './es/modules/class.js'; // makes it easy to toggle classes
+    import { propsModule } from './es/modules/props.js'; // for setting properties on DOM elements
+    import { styleModule } from './es/modules/style.js'; // handles styling on elements with support for animations
+    import { eventListenersModule } from './es/modules/eventlisteners.js'; // attaches event listeners
+    import { h } from './es/h.js'; // helper function for creating vnodes
+    var patch = init([
+        attributesModule,
+        classModule,
+        propsModule,
+        styleModule,
+        eventListenersModule
+    ]);
+
     var container = document.getElementById('container')
 
     var vnode = h(

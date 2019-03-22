@@ -49,7 +49,6 @@ export function init(modules: Array<Partial<Module>>, domApi?: DOMAPI) {
   let i: number, j: number, cbs = ({} as ModuleHooks);
 
   const api: DOMAPI = domApi !== undefined ? domApi : htmlDomApi;
-
   for (i = 0; i < hooks.length; ++i) {
     cbs[hooks[i]] = [];
     for (j = 0; j < modules.length; ++j) {

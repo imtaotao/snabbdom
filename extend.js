@@ -17,8 +17,8 @@ function add (filepath) {
 // 监视编译后的文件，然后给补上 .js 后缀
 gaze('./es/*.js', (err, watcher) => {
   if (err) throw err
-  watcher.on('added', filepath => add(filepath))
-  watcher.on('changed', filepath => add(filepath))
+  watcher.on('added', add)
+  watcher.on('changed', add)
 })
 
 // 运行编译 tsc 命令
