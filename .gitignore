@@ -32,4 +32,4 @@ node_modules
 # Generated JavaScript
 /test/browserified.js
 /browserified.js
-/es
+# /es
